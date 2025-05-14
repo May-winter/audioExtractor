@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP4 to MP3 Converter</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1e1e1e; /* Dark background color */
+            color: #e0e0e0; /* Light text color */
+        }
+        .container {
+            margin-top: 50px;
+        }
+        form label {
+            font-weight: bold;
+        }
+        .form-control::placeholder {
+            color: #888;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004380;
+        }
+        .alert {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container bg-dark p-5 rounded">
+        <h1 class="text-light mb-4">MP4 to MP3 Converter</h1>
+        <form action="/convert" method="post">
+            <div class="form-group">
+                <label for="mp4_path">Enter path to directory where MP4 files are located:</label>
+                <input class="form-control" type="text" id="mp4_path" name="mp4_path" required placeholder="e.g., /path/to/mp4/files">
+                <small class="form-text text-muted">Example: /path/to/videos</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="mp3_path">Enter path to directory where MP3 files should be saved:</label>
+                <input class="form-control" type="text" id="mp3_path" name="mp3_path" required placeholder="e.g., /path/to/mp3/files">
+                <small class="form-text text-muted">Example: /path/to/audio/output</small>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block mt-4">Convert MP4 to MP3</button>
+        </form>
+        {% if message %}
+            <div class="alert alert-info mt-4">
+                {{ message }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
